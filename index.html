@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Comparte un contacto que quiera recibir información sobre seguros de gastos finales.">
+  <title>Programa de Referidos | Luis Gonzalez</title>
+  <style>
+    :root { --ink:#171717; --orange:#f59e0b; --cream:#fffaf1; --muted:#666; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Arial,Helvetica,sans-serif; color:var(--ink); background:linear-gradient(135deg,#fffaf1,#f4f4f4); }
+    .wrap { width:min(100% - 32px,900px); margin:0 auto; }
+    header { background:var(--ink); color:white; padding:22px 0; border-bottom:5px solid var(--orange); }
+    .brand { display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.4px; }
+    .mark { width:42px;height:42px;border-radius:12px;background:var(--orange);color:#171717;display:grid;place-items:center;font-size:21px;font-weight:900; }
+    main { padding:54px 0 40px; }
+    .hero { text-align:center; max-width:700px; margin:0 auto 30px; }
+    .eyebrow { display:inline-block; color:#8a5700; background:#ffedc2; padding:8px 13px; border-radius:99px; font-size:12px; font-weight:800; letter-spacing:1px; text-transform:uppercase; }
+    h1 { font-size:clamp(32px,6vw,52px); line-height:1.05; margin:18px 0 14px; }
+    h1 span { color:#c77b00; }
+    .lead { color:#555; font-size:17px; line-height:1.6; margin:0; }
+    .panel { display:grid; grid-template-columns:1fr 1.25fr; gap:24px; align-items:start; margin-top:34px; }
+    .info,.form-card { border-radius:22px; padding:28px; box-shadow:0 12px 35px #17171712; }
+    .info { background:var(--ink); color:white; min-height:100%; }
+    .info h2 { font-size:24px; margin:0 0 14px; }
+    .info p { color:#ddd; line-height:1.6; }
+    .steps { padding:0; margin:22px 0 0; list-style:none; }
+    .steps li { display:flex; gap:12px; margin:16px 0; color:#f2f2f2; line-height:1.4; }
+    .num { flex:0 0 28px; height:28px; border-radius:50%; background:var(--orange); color:#171717; display:grid; place-items:center; font-weight:800; }
+    .form-card { background:white; }
+    .form-card h2 { margin:0 0 7px; font-size:25px; }
+    .sub { margin:0 0 22px; color:var(--muted); font-size:14px; line-height:1.5; }
+    label { display:block; font-size:13px; font-weight:700; margin:15px 0 7px; }
+    input { width:100%; border:1px solid #d8d8d8; border-radius:11px; padding:13px 14px; font:inherit; outline:none; }
+    input:focus { border-color:#d18a12; box-shadow:0 0 0 3px #f59e0b25; }
+    .consent { display:flex; align-items:flex-start; gap:10px; margin:18px 0; font-size:12px; color:#555; line-height:1.5; }
+    .consent input { width:17px; height:17px; margin-top:1px; flex:0 0 auto; }
+    button { width:100%; border:0; border-radius:12px; background:var(--orange); color:#171717; padding:15px 18px; font-size:15px; font-weight:800; cursor:pointer; }
+    button:hover { background:#e68b00; }
+    .privacy { margin:12px 0 0; color:#777; font-size:11px; line-height:1.5; }
+    footer { text-align:center; padding:25px 0 35px; color:#666; font-size:13px; }
+    footer strong { color:#171717; }
+    @media(max-width:700px) { .panel { grid-template-columns:1fr; } main { padding-top:38px; } .info,.form-card { padding:23px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap brand">
+      <div class="mark">LG</div>
+      <div>LUIS GONZALEZ <span style="display:block;font-size:11px;color:#f5b942;letter-spacing:1.3px;margin-top:3px">AGENTE DE SEGUROS</span></div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="eyebrow">Programa de referidos</div>
+      <h1>Ayúdanos a conectar con más <span>familias.</span></h1>
+      <p class="lead">¿Conoces a alguien que quiera recibir información sobre cómo prepararse para los gastos finales? Comparte sus datos únicamente con su permiso y nos comunicaremos con esa persona.</p>
+    </section>
+
+    <section class="panel">
+      <aside class="info">
+        <h2>¿Cómo funciona?</h2>
+        <p>Compartir un contacto toma menos de un minuto. La persona referida podrá decidir si desea recibir más información.</p>
+        <ul class="steps">
+          <li><span class="num">1</span><span>Completa tus datos y los de la persona que deseas recomendar.</span></li>
+          <li><span class="num">2</span><span>Confirma que tienes permiso para compartir su información.</span></li>
+          <li><span class="num">3</span><span>Envía el referido por WhatsApp para que podamos darle seguimiento.</span></li>
+        </ul>
+      </aside>
+
+      <section class="form-card">
+        <h2>Registrar un referido</h2>
+        <p class="sub">Completa los campos. Al presionar el botón, se abrirá WhatsApp con el mensaje preparado para enviarlo.</p>
+        <form id="referralForm">
+          <label for="yourName">Tu nombre</label>
+          <input id="yourName" name="yourName" autocomplete="name" required placeholder="Tu nombre completo">
+
+          <label for="yourPhone">Tu teléfono (opcional)</label>
+          <input id="yourPhone" name="yourPhone" type="tel" autocomplete="tel" placeholder="Tu número de teléfono">
+
+          <label for="refName">Nombre de la persona referida</label>
+          <input id="refName" name="refName" required placeholder="Nombre completo">
+
+          <label for="refPhone">Teléfono de la persona referida</label>
+          <input id="refPhone" name="refPhone" type="tel" required placeholder="Número de teléfono">
+
+          <label class="consent">
+            <input id="permission" type="checkbox" required>
+            <span>Confirmo que la persona referida me autorizó a compartir su nombre y teléfono para que Luis Gonzalez pueda contactarla sobre información de seguros. No enviaré datos sin su permiso.</span>
+          </label>
+
+          <button type="submit">Enviar referido por WhatsApp</button>
+          <p class="privacy">Aviso: esta página no guarda los datos en una base de datos. Al enviar, la información se incorpora a un mensaje de WhatsApp dirigido al agente. La persona referida puede decidir si desea continuar la conversación.</p>
+        </form>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap"><strong>Luis Gonzalez</strong> · Agente de seguros<br>Teléfono: 352-457-4132</div>
+  </footer>
+
+  <script>
+    const form = document.getElementById('referralForm');
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+      const yourName = document.getElementById('yourName').value.trim();
+      const yourPhone = document.getElementById('yourPhone').value.trim() || 'No proporcionado';
+      const refName = document.getElementById('refName').value.trim();
+      const refPhone = document.getElementById('refPhone').value.trim();
+      const message = [
+        'Hola Luis, quiero compartir un referido.',
+        '',
+        'Persona que refiere: ' + yourName,
+        'Teléfono de quien refiere: ' + yourPhone,
+        'Nombre del referido: ' + refName,
+        'Teléfono del referido: ' + refPhone,
+        '',
+        'Confirmo que tengo permiso para compartir estos datos.'
+      ].join('\n');
+      const whatsappNumber = '13524574132';
+      window.open('https://wa.me/' + whatsappNumber + '?text=' + encodeURIComponent(message), '_blank', 'noopener');
+    });
+  </script>
+</body>
+</html>
